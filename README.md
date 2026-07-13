@@ -11,9 +11,9 @@
 
 ---
 
-###
+#### Package Install
 ```bash
-
+npm install @upstash/ratelimit @upstash/redis
 ```
 ---
 
