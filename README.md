@@ -4,6 +4,12 @@
 ![](https://imgur.com/xS7IDVR.png)
 ![](https://imgur.com/Sb8UDQw.png)
 
+---
+
+#### Copy koro & .env te paste koro.
+![](https://imgur.com/4WYqOJQ.png)
+
+---
 
 ###
 ```bash
