@@ -63,7 +63,7 @@ export function getClientIp(request: NextRequest): string {
 ```
 ---
 
-###
+### /app/api/auth/login/route.ts
 ```bash
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
@@ -247,3 +247,6 @@ export async function POST(request: NextRequest) {
 }
 ```
 ---
+
+![](https://imgur.com/Pse5s8V.png)
+![](https://imgur.com/dw6GeC6.png)
