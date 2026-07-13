@@ -17,6 +17,36 @@ npm install @upstash/ratelimit @upstash/redis
 ```
 ---
 
+### lib/rate-limit.ts
+```bash
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
+import { env } from "./validations/env";
+
+
+const redis = new Redis({
+    url: env.UPSTASH_REDIS_REST_URL,
+    token: env.UPSTASH_REDIS_REST_TOKEN,
+});
+
+// IP based: একটা IP থেকে 10 বার/1min এর বেশি না
+export const ipRateLimit = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, "1 m"),
+    analytics: true,
+    prefix: "ratelimit:login:ip",
+});
+
+// Email based: একটা নির্দিষ্ট email এ 5 বার/1min এর বেশি না (stricter, কারণ এটাই মূল brute-force target)
+export const emailRateLimit = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(5, "1 m"),
+    analytics: true,
+    prefix: "ratelimit:login:email",
+});
+```
+---
+
 ###
 ```bash
 
